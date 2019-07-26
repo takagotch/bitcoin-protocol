@@ -3,8 +3,8 @@
 https://github.com/mappum/bitcoin-protocol
 
 ```js
-var net = require()
-var bp = require()
+var net = require('net')
+var bp = require('bitcoin-protocol')
 
 var decoder = bp.createDecodeStream()
 decoder.on('data', function (message) { console.log(message) })
@@ -54,25 +54,145 @@ var socket = net.connect(8333, '127.0.0.1', function () {
   payload: Object
 }
 
+{
+  magic: Number,
+  command: String,
+  payload: Object
+}
 
+{
+  version: Number,
+  services: Buffer,
+  timestamp: Number,
+  receiverAddress: {
+    services: Buffer,
+    address: String,
+    port: Number
+  },
+  senderAddress: {
+    services: Buffer,
+    address: String,
+    port: Number
+  },
+  nonce: Buffer,
+  userAgent: String,
+  startHeight: Number,
+  relay: Boolean
+}
 
+[
+  {
+    time: Number,
+    services: Buffer,
+    address: String,
+    port: Number
+  },
+]
 
+[
+  {
+    type: Number,
+    hash: Buffer
+  },
+]
 
+{
+  version: Number,
+  locator: [
+    Buffer
+  ],
+  hashStop: Buffer
+}
 
+{
+  version: Number,
+  ins: [
+    {
+      hash: Buffer,
+      index: Number,
+      script: Buffer,
+      sequence: Number
+    }
+  ],
+  outs: [
+    {
+      value: BN,
+      script: Buffer
+    },
+  ],
+  locktime: Number
+}
 
+{
+  header: {
+    version: Number,
+    prevHash: Buffer,
+    merkleRoot: Buffer,
+    timestamp: Number,
+    bits: Number,
+    nonce: Number,
+  },
+  transactions: [
+    {},
+  ]
+}
 
+[
+  {
+    header: {
+      version: Number,
+      prevHash: Buffer,
+      merkleRoot: Buffer,
+      timestamp: Number,
+      bits: Number,
+      nonce: Number,
+    },
+    nTransactions: Number
+  }
+]
 
+{
+  nonce: Buffer
+}
 
+{
+  message: String,
+  ccode: Number,
+  reason: String,
+  data: Buffer
+}
 
+{
+  data: Buffer,
+  nHashFuncs: Number,
+  nTweak: Number,
+  nFlags: Number
+}
 
+{
+  data: Buffer
+}
 
+{
+  header: {
+    version: Number,
+    prevHash: Buffer,
+    merkleRoot: Buffer,
+    timestamp: Number,
+    bits: Number,
+    nonce: Number
+  },
+  numTransactions: Number,
+  hashes: [
+    Buffer
+  ],
+  flags: Buffer
+}
 
-
-
-
-
-
-
+{
+  payload: Buffer,
+  signature: Buffer
+}
 
 ```
 
